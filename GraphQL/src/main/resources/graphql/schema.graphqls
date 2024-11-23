@@ -11,13 +11,13 @@ enum TypeTransaction {
 
 # Query definitions
 type Query {
-    allComptes: [Compte]                 # Fetch all accounts
-    compteById(id: ID): Compte           # Fetch a specific account by ID
-    totalSolde: SoldeStats               # Get aggregated statistics of all account balances
-    findByType(type: TypeCompte): [Compte] # Fetch accounts filtered by type
-    deleteCompte(id: ID): [Compte]       # Delete an account and return remaining accounts
-    compteTransactions(id: ID): [Transaction] # Fetch transactions for a specific account
-    transactionStats: TransactionStats   # Get statistics for all transactions
+    allComptes: [Compte]                 
+    compteById(id: ID): Compte           
+    totalSolde: SoldeStats               
+    findByType(type: TypeCompte): [Compte] 
+    deleteCompte(id: ID): [Compte]       
+    compteTransactions(id: ID): [Transaction] 
+    transactionStats: TransactionStats   
 }
 
 # Account type definition
@@ -26,7 +26,7 @@ type Compte {
     solde: Float
     dateCreation: String
     type: TypeCompte
-    transactions: [Transaction]          # Transactions linked to this account
+    transactions: [Transaction]          
 }
 
 # Transaction type definition
@@ -35,13 +35,13 @@ type Transaction {
     montant: Float
     date: String
     type: TypeTransaction
-    compte: Compte                      # The account associated with this transaction
+    compte: Compte                      
 }
 
 # Mutation definitions
 type Mutation {
-    saveCompte(compte: CompteRequest): Compte    # Create or update an account
-    addTransaction(transaction: TransactionRequest): Transaction # Add a new transaction
+    saveCompte(compte: CompteRequest): Compte    
+    addTransaction(transaction: TransactionRequest): Transaction 
 }
 
 # Input definitions
